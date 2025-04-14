@@ -35,6 +35,7 @@ import PurchaseHistory from "./Components/core/Dashboard/PurchaseHistory";
 import InstructorDashboard from "./Components/core/Dashboard/InstructorDashboard/InstructorDashboard";
 import { RiWifiOffLine } from "react-icons/ri";
 import AdminPannel from "./Components/core/Dashboard/AdminPannel";
+import ManageStudents from "./Components/core/Dashboard/ManageStudents/ManageStudents";
 
 function App() {
   console.log = function () {};
@@ -133,6 +134,10 @@ function App() {
               <Route
                 path="dashboard/instructor"
                 element={<InstructorDashboard />}
+              />
+              <Route
+                path="dashboard/manage-students"
+                element={<ManageStudents />}
               />
             </>
           )}

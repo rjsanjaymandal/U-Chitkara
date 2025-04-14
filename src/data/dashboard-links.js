@@ -29,13 +29,19 @@ export const sidebarLinks = [
   },
   {
     id: 5,
+    name: "Manage Students",
+    path: "/dashboard/manage-students",
+    type: ACCOUNT_TYPE.INSTRUCTOR,
+    icon: "VscPerson",
+  },
+  {
+    id: 6,
     name: "Enrolled Courses",
     path: "/dashboard/enrolled-courses",
     type: ACCOUNT_TYPE.STUDENT,
     icon: "VscMortarBoard",
   },
   {
-    id: 6,
     id: 7,
     name: "Cart",
     path: "/dashboard/cart",
@@ -43,6 +49,7 @@ export const sidebarLinks = [
     icon: "VscBookmark",
   },
   {
+    id: 8,
     name: "Admin Panel",
     path: "/dashboard/admin-panel",
     type: ACCOUNT_TYPE.ADMIN,

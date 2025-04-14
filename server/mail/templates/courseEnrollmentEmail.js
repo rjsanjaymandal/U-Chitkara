@@ -1,7 +1,12 @@
-exports.courseEnrollmentEmail = (courseName, name) => {
-    return `<!DOCTYPE html>
+exports.courseEnrollmentEmail = (
+  courseName,
+  name,
+  courseDescription,
+  thumbnail
+) => {
+  return `<!DOCTYPE html>
     <html>
-    
+
     <head>
         <meta charset="UTF-8">
         <title>Course Registration Confirmation</title>
@@ -15,31 +20,31 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                 margin: 0;
                 padding: 0;
             }
-    
-    
+
+
             .container {
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
                 text-align: center;
             }
-    
+
             .logo {
                 max-width: 200px;
                 margin-bottom: 20px;
             }
-    
+
             .message {
                 font-size: 18px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-    
+
             .body {
                 font-size: 16px;
                 margin-bottom: 20px;
             }
-    
+
             .cta {
                 display: inline-block;
                 padding: 10px 20px;
@@ -51,20 +56,20 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                 font-weight: bold;
                 margin-top: 20px;
             }
-    
+
             .support {
                 font-size: 14px;
                 color: #999999;
                 margin-top: 20px;
             }
-    
+
             .highlight {
                 font-weight: bold;
             }
         </style>
-    
+
     </head>
-    
+
     <body>
         <div class="container">
             <a href="https://studynotion-edtech-project.vercel.app"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png"
@@ -74,14 +79,23 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                 <p>Dear ${name},</p>
                 <p>You have successfully registered for the course <span class="highlight">"${courseName}"</span>. We
                     are excited to have you as a participant!</p>
+                <p>${
+                  courseDescription ||
+                  "Get ready to enhance your skills and knowledge with this amazing course."
+                }</p>
                 <p>Please log in to your learning dashboard to access the course materials and start your learning journey.
                 </p>
+                ${
+                  thumbnail
+                    ? `<img src="${thumbnail}" alt="${courseName}" style="max-width: 100%; margin: 10px 0; border-radius: 5px;">`
+                    : ""
+                }
                 <a class="cta" href="https://studynotion-edtech-project.vercel.app/dashboard">Go to Dashboard</a>
             </div>
             <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
                     href="mailto:info@studynotion.com">info@studynotion.com</a>. We are here to help!</div>
         </div>
     </body>
-    
+
     </html>`;
-  };
+};
