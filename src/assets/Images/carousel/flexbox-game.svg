@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2C333F" offset="0%"></stop>
+            <stop stop-color="#161D29" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#EB2F96" offset="0%"></stop>
+            <stop stop-color="#9E1068" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Flexbox-Game" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="url(#linearGradient-1)" x="0" y="0" width="800" height="600"></rect>
+        <g id="Game-Area" transform="translate(100.000000, 100.000000)">
+            <rect id="Game-Container" stroke="#9E1068" stroke-width="2" fill="#2C333F" x="0" y="0" width="600" height="400" rx="8"></rect>
+            <rect id="Header" fill="#161D29" x="0" y="0" width="600" height="40" rx="8"></rect>
+            <text id="CSS-Flexbox-Game" font-family="Arial-BoldMT, Arial" font-size="16" font-weight="bold" fill="#FFFFFF">
+                <tspan x="240" y="25">CSS Flexbox Game</tspan>
+            </text>
+            <g id="Baskets" transform="translate(50.000000, 250.000000)">
+                <rect id="Basket-1" stroke="#EB2F96" stroke-width="2" fill="#2C333F" x="0" y="0" width="100" height="100" rx="4"></rect>
+                <rect id="Basket-2" stroke="#EB2F96" stroke-width="2" fill="#2C333F" x="150" y="0" width="100" height="100" rx="4"></rect>
+                <rect id="Basket-3" stroke="#EB2F96" stroke-width="2" fill="#2C333F" x="300" y="0" width="100" height="100" rx="4"></rect>
+                <rect id="Basket-4" stroke="#EB2F96" stroke-width="2" fill="#2C333F" x="450" y="0" width="100" height="100" rx="4"></rect>
+            </g>
+            <g id="Fruits" transform="translate(50.000000, 100.000000)">
+                <g id="Apple" transform="translate(25.000000, 25.000000)">
+                    <circle id="Apple-Body" fill="#FF6B6B" cx="25" cy="25" r="25"></circle>
+                    <path d="M25,0 C27.5,0 30,2.5 30,5 L20,5 C20,2.5 22.5,0 25,0 Z" id="Apple-Stem" fill="#8D6E63"></path>
+                </g>
+                <g id="Banana" transform="translate(175.000000, 25.000000)">
+                    <path d="M50,25 C50,38.8071187 38.8071187,50 25,50 C11.1928813,50 0,38.8071187 0,25 C0,11.1928813 11.1928813,0 25,0 C38.8071187,0 50,11.1928813 50,25 Z" id="Banana-Body" fill="#FFD700"></path>
+                </g>
+                <g id="Orange" transform="translate(325.000000, 25.000000)">
+                    <circle id="Orange-Body" fill="#FFA500" cx="25" cy="25" r="25"></circle>
+                </g>
+                <g id="Grapes" transform="translate(475.000000, 25.000000)">
+                    <circle id="Grape-1" fill="#9C27B0" cx="15" cy="15" r="15"></circle>
+                    <circle id="Grape-2" fill="#9C27B0" cx="35" cy="15" r="15"></circle>
+                    <circle id="Grape-3" fill="#9C27B0" cx="25" cy="35" r="15"></circle>
+                </g>
+            </g>
+            <g id="Code-Panel" transform="translate(50.000000, 180.000000)">
+                <rect id="Code-Background" fill="#161D29" x="0" y="0" width="500" height="40" rx="4"></rect>
+                <text id="display:-flex;-justi" font-family="Menlo-Regular, Menlo" font-size="16" font-weight="normal" fill="#FFD60A">
+                    <tspan x="10" y="25">display: flex; justify-content: space-between;</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Decorations" transform="translate(50.000000, 50.000000)">
+            <circle id="Circle-1" fill="url(#linearGradient-2)" opacity="0.3" cx="100" cy="100" r="50"></circle>
+            <circle id="Circle-2" fill="url(#linearGradient-2)" opacity="0.2" cx="650" cy="450" r="70"></circle>
+            <circle id="Circle-3" fill="url(#linearGradient-2)" opacity="0.1" cx="700" cy="100" r="40"></circle>
+        </g>
+    </g>
+</svg>

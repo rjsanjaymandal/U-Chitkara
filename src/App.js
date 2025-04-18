@@ -1,7 +1,11 @@
 import "./App.css";
+import "./styles/dropdown-fix.css";
+import "./styles/modern-navbar.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./Components/common/NavBar";
+import ModernNavBar from "./Components/common/ModernNavBar";
+import AestheticNavBar from "./Components/common/AestheticNavBar";
 import Footer from "./Components/common/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -33,15 +37,34 @@ import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./Components/core/ViewCourse/VideoDetails";
 import PurchaseHistory from "./Components/core/Dashboard/PurchaseHistory";
 import InstructorDashboard from "./Components/core/Dashboard/InstructorDashboard/InstructorDashboard";
+import BulkCourseCreator from "./Components/core/Dashboard/AddCourse/BulkCourseCreator";
 import { RiWifiOffLine } from "react-icons/ri";
 import AdminPannel from "./Components/core/Dashboard/AdminPannel";
 import ManageStudents from "./Components/core/Dashboard/ManageStudents/ManageStudents";
+import LearningPaths from "./pages/LearningPaths";
+import LearningPathDetails from "./pages/LearningPathDetails";
+import CodePlayground from "./pages/CodePlayground";
+import BecomeAnInstructor from "./pages/BecomeAnInstructor";
+import AIChat from "./pages/AIChat";
+
+import FruitBoxFlex from "./pages/FruitBoxFlex";
+import useOnlineStatus from "./hooks/useOnlineStatus";
 
 function App() {
-  console.log = function () {};
+  // Only disable console logs in production
+  if (process.env.NODE_ENV === "production") {
+    // Preserve error and warning logs even in production
+    const originalConsoleError = console.error;
+    const originalConsoleWarn = console.warn;
+    console.log = function () {};
+    console.error = originalConsoleError;
+    console.warn = originalConsoleWarn;
+  }
+
   const user = useSelector((state) => state.profile.user);
   const progress = useSelector((state) => state.loadingBar);
   const dispatch = useDispatch();
+  const isOnline = useOnlineStatus(); // Use our custom hook for better offline detection
   return (
     <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <LoadingBar
@@ -50,14 +73,15 @@ function App() {
         progress={progress}
         onLoaderFinished={() => dispatch(setProgress(0))}
       />
-      <NavBar setProgress={setProgress}></NavBar>
-      {!navigator.onLine && (
-        <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center">
-          <RiWifiOffLine size={22} />
-          Please check your internet connection.
+      <AestheticNavBar />
+      {!isOnline && (
+        <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center shadow-md fixed bottom-0 left-0 right-0 z-50 animate-pulse">
+          <RiWifiOffLine size={22} aria-hidden="true" />
+          <span>Please check your internet connection.</span>
           <button
-            className="ml-2 bg-richblack-500 rounded-md p-1 px-2 text-white"
+            className="ml-2 bg-richblack-500 rounded-md p-1 px-2 text-white hover:bg-richblack-600 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-50"
             onClick={() => window.location.reload()}
+            aria-label="Retry connection"
           >
             Retry
           </button>
@@ -101,6 +125,21 @@ function App() {
 
         <Route path="/search/:searchQuery" element={<SearchCourse />} />
 
+        <Route path="/learning-paths" element={<LearningPaths />} />
+
+        <Route
+          path="/learning-path/:pathId"
+          element={<LearningPathDetails />}
+        />
+
+        <Route path="/code-playground" element={<CodePlayground />} />
+
+        <Route path="/ai-chat" element={<AIChat />} />
+
+        <Route path="/fruitbox-flex" element={<FruitBoxFlex />} />
+
+        <Route path="/become-an-instructor" element={<BecomeAnInstructor />} />
+
         <Route
           element={
             <PrivateRoute>
@@ -138,6 +177,10 @@ function App() {
               <Route
                 path="dashboard/manage-students"
                 element={<ManageStudents />}
+              />
+              <Route
+                path="dashboard/bulk-course-creator"
+                element={<BulkCourseCreator />}
               />
             </>
           )}

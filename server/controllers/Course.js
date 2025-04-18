@@ -556,6 +556,7 @@ exports.getEnrolledStudents = async (req, res) => {
 
 // Add a student to a course
 exports.addStudentToCourse = async (req, res) => {
+  console.log("addStudentToCourse called");
   try {
     console.log("Request body:", req.body);
     console.log("Request headers:", req.headers);

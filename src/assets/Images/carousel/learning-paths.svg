@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2C333F" offset="0%"></stop>
+            <stop stop-color="#161D29" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FA8C16" offset="0%"></stop>
+            <stop stop-color="#AD4E00" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Learning-Paths" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="url(#linearGradient-1)" x="0" y="0" width="800" height="600"></rect>
+        <g id="Path-Diagram" transform="translate(100.000000, 100.000000)">
+            <rect id="Container" stroke="#AD4E00" stroke-width="2" fill="#2C333F" x="0" y="0" width="600" height="400" rx="8"></rect>
+            <rect id="Header" fill="#161D29" x="0" y="0" width="600" height="40" rx="8"></rect>
+            <text id="Learning-Paths" font-family="Arial-BoldMT, Arial" font-size="16" font-weight="bold" fill="#FFFFFF">
+                <tspan x="250" y="25">Learning Paths</tspan>
+            </text>
+            
+            <!-- Path Lines -->
+            <path d="M300,80 L300,350" id="Main-Path" stroke="#FA8C16" stroke-width="4" stroke-dasharray="8,8"></path>
+            <path d="M300,120 L150,170" id="Branch-1" stroke="#FA8C16" stroke-width="3" stroke-dasharray="5,5"></path>
+            <path d="M300,200 L450,250" id="Branch-2" stroke="#FA8C16" stroke-width="3" stroke-dasharray="5,5"></path>
+            <path d="M300,280 L150,330" id="Branch-3" stroke="#FA8C16" stroke-width="3" stroke-dasharray="5,5"></path>
+            
+            <!-- Nodes -->
+            <circle id="Start-Node" fill="#FA8C16" cx="300" cy="80" r="15"></circle>
+            <circle id="Node-1" stroke="#FA8C16" stroke-width="2" fill="#2C333F" cx="300" cy="120" r="10"></circle>
+            <circle id="Node-2" stroke="#FA8C16" stroke-width="2" fill="#2C333F" cx="300" cy="200" r="10"></circle>
+            <circle id="Node-3" stroke="#FA8C16" stroke-width="2" fill="#2C333F" cx="300" cy="280" r="10"></circle>
+            <circle id="End-Node" fill="#FA8C16" cx="300" cy="350" r="15"></circle>
+            
+            <!-- Branch Nodes -->
+            <circle id="Branch-Node-1" fill="#FA8C16" cx="150" cy="170" r="12"></circle>
+            <circle id="Branch-Node-2" fill="#FA8C16" cx="450" cy="250" r="12"></circle>
+            <circle id="Branch-Node-3" fill="#FA8C16" cx="150" cy="330" r="12"></circle>
+            
+            <!-- Course Boxes -->
+            <g id="Course-1" transform="translate(50.000000, 140.000000)">
+                <rect id="Box" fill="#161D29" x="0" y="0" width="180" height="60" rx="4"></rect>
+                <text id="HTML-&amp;-CSS-Basics" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="30" y="25">HTML &amp; CSS Basics</tspan>
+                    <tspan x="40" y="45" font-family="Arial" font-size="12" font-weight="normal">4 weeks • Beginner</tspan>
+                </text>
+            </g>
+            
+            <g id="Course-2" transform="translate(370.000000, 220.000000)">
+                <rect id="Box" fill="#161D29" x="0" y="0" width="180" height="60" rx="4"></rect>
+                <text id="JavaScript-Fundament" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="15" y="25">JavaScript Fundamentals</tspan>
+                    <tspan x="40" y="45" font-family="Arial" font-size="12" font-weight="normal">6 weeks • Intermediate</tspan>
+                </text>
+            </g>
+            
+            <g id="Course-3" transform="translate(50.000000, 300.000000)">
+                <rect id="Box" fill="#161D29" x="0" y="0" width="180" height="60" rx="4"></rect>
+                <text id="React-Development" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="30" y="25">React Development</tspan>
+                    <tspan x="40" y="45" font-family="Arial" font-size="12" font-weight="normal">8 weeks • Advanced</tspan>
+                </text>
+            </g>
+            
+            <!-- Path Title -->
+            <g id="Path-Title" transform="translate(200.000000, 50.000000)">
+                <text id="Web-Development-Pat" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#FA8C16">
+                    <tspan x="0" y="17">Web Development Path</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Decorations" transform="translate(50.000000, 50.000000)">
+            <circle id="Circle-1" fill="url(#linearGradient-2)" opacity="0.3" cx="100" cy="100" r="50"></circle>
+            <circle id="Circle-2" fill="url(#linearGradient-2)" opacity="0.2" cx="650" cy="450" r="70"></circle>
+            <circle id="Circle-3" fill="url(#linearGradient-2)" opacity="0.1" cx="700" cy="100" r="40"></circle>
+        </g>
+    </g>
+</svg>

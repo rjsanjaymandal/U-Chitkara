@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2C333F" offset="0%"></stop>
+            <stop stop-color="#161D29" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1890FF" offset="0%"></stop>
+            <stop stop-color="#0050B3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Coding-Courses" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="url(#linearGradient-1)" x="0" y="0" width="800" height="600"></rect>
+        <g id="Course-Cards" transform="translate(100.000000, 100.000000)">
+            <rect id="Container" stroke="#0050B3" stroke-width="2" fill="#2C333F" x="0" y="0" width="600" height="400" rx="8"></rect>
+            <rect id="Header" fill="#161D29" x="0" y="0" width="600" height="40" rx="8"></rect>
+            <text id="Featured-Courses" font-family="Arial-BoldMT, Arial" font-size="16" font-weight="bold" fill="#FFFFFF">
+                <tspan x="240" y="25">Featured Courses</tspan>
+            </text>
+            
+            <!-- Course Card 1 -->
+            <g id="Course-1" transform="translate(30.000000, 70.000000)">
+                <rect id="Card" fill="#161D29" x="0" y="0" width="250" height="140" rx="8"></rect>
+                <rect id="Image" fill="#1890FF" opacity="0.2" x="0" y="0" width="250" height="70" rx="8 8 0 0"></rect>
+                <g id="Code-Icons" transform="translate(20.000000, 20.000000)" fill="#FFFFFF">
+                    <rect id="Tag-1" x="0" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-2" x="40" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-3" x="80" y="0" width="30" height="10" rx="2"></rect>
+                </g>
+                <text id="Python-for-Data-Scie" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="15" y="95">Python for Data Science</tspan>
+                </text>
+                <text id="Learn-Python-basics" font-family="Arial, Arial" font-size="12" font-weight="normal" fill="#6C757D">
+                    <tspan x="15" y="115">Learn Python basics and data</tspan>
+                    <tspan x="15" y="130">analysis with real-world projects</tspan>
+                </text>
+            </g>
+            
+            <!-- Course Card 2 -->
+            <g id="Course-2" transform="translate(320.000000, 70.000000)">
+                <rect id="Card" fill="#161D29" x="0" y="0" width="250" height="140" rx="8"></rect>
+                <rect id="Image" fill="#1890FF" opacity="0.2" x="0" y="0" width="250" height="70" rx="8 8 0 0"></rect>
+                <g id="Code-Icons" transform="translate(20.000000, 20.000000)" fill="#FFFFFF">
+                    <rect id="Tag-1" x="0" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-2" x="40" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-3" x="80" y="0" width="30" height="10" rx="2"></rect>
+                </g>
+                <text id="Full-Stack-Web-Devel" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="15" y="95">Full Stack Web Development</tspan>
+                </text>
+                <text id="Master-front-end-and" font-family="Arial, Arial" font-size="12" font-weight="normal" fill="#6C757D">
+                    <tspan x="15" y="115">Master front-end and back-end</tspan>
+                    <tspan x="15" y="130">technologies in one complete course</tspan>
+                </text>
+            </g>
+            
+            <!-- Course Card 3 -->
+            <g id="Course-3" transform="translate(30.000000, 230.000000)">
+                <rect id="Card" fill="#161D29" x="0" y="0" width="250" height="140" rx="8"></rect>
+                <rect id="Image" fill="#1890FF" opacity="0.2" x="0" y="0" width="250" height="70" rx="8 8 0 0"></rect>
+                <g id="Code-Icons" transform="translate(20.000000, 20.000000)" fill="#FFFFFF">
+                    <rect id="Tag-1" x="0" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-2" x="40" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-3" x="80" y="0" width="30" height="10" rx="2"></rect>
+                </g>
+                <text id="Mobile-App-Developme" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="15" y="95">Mobile App Development</tspan>
+                </text>
+                <text id="Build-iOS-and-Androi" font-family="Arial, Arial" font-size="12" font-weight="normal" fill="#6C757D">
+                    <tspan x="15" y="115">Build iOS and Android apps using</tspan>
+                    <tspan x="15" y="130">React Native and publish to stores</tspan>
+                </text>
+            </g>
+            
+            <!-- Course Card 4 -->
+            <g id="Course-4" transform="translate(320.000000, 230.000000)">
+                <rect id="Card" fill="#161D29" x="0" y="0" width="250" height="140" rx="8"></rect>
+                <rect id="Image" fill="#1890FF" opacity="0.2" x="0" y="0" width="250" height="70" rx="8 8 0 0"></rect>
+                <g id="Code-Icons" transform="translate(20.000000, 20.000000)" fill="#FFFFFF">
+                    <rect id="Tag-1" x="0" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-2" x="40" y="0" width="30" height="10" rx="2"></rect>
+                    <rect id="Tag-3" x="80" y="0" width="30" height="10" rx="2"></rect>
+                </g>
+                <text id="Machine-Learning-Fun" font-family="Arial-BoldMT, Arial" font-size="14" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="15" y="95">Machine Learning Fundamentals</tspan>
+                </text>
+                <text id="Understand-ML-algori" font-family="Arial, Arial" font-size="12" font-weight="normal" fill="#6C757D">
+                    <tspan x="15" y="115">Understand ML algorithms and</tspan>
+                    <tspan x="15" y="130">implement them with Python</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Decorations" transform="translate(50.000000, 50.000000)">
+            <circle id="Circle-1" fill="url(#linearGradient-2)" opacity="0.3" cx="100" cy="100" r="50"></circle>
+            <circle id="Circle-2" fill="url(#linearGradient-2)" opacity="0.2" cx="650" cy="450" r="70"></circle>
+            <circle id="Circle-3" fill="url(#linearGradient-2)" opacity="0.1" cx="700" cy="100" r="40"></circle>
+        </g>
+    </g>
+</svg>

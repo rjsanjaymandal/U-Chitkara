@@ -18,7 +18,7 @@ const addTestUser = async () => {
   try {
     console.log("Adding test user...");
 
-    const email = "test@example.com";
+    const email = "test2@example.com";
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -30,6 +30,18 @@ const addTestUser = async () => {
     // Hash the password
     const hashedPassword = await bcrypt.hash("Test@123", 10);
 
+    // Create a profile for the user
+    const profileDetails = new Profile({
+      gender: "Male",
+      dateOfBirth: new Date("1990-01-01"),
+      about: "Test user for development",
+      contactNumber: "1234567890",
+    });
+
+    // Save the profile
+    const profile = await profileDetails.save();
+    console.log("Profile created successfully");
+
     // Create a new user
     const newUser = new User({
       firstName: "Test",
@@ -39,7 +51,7 @@ const addTestUser = async () => {
       accountType: "Student",
       active: true,
       approved: true,
-      additionalDetails: null,
+      additionalDetails: profile._id,
       courses: [],
       courseProgress: [],
       image: `https://api.dicebear.com/5.x/initials/svg?seed=Test User`,

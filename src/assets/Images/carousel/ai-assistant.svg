@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2C333F" offset="0%"></stop>
+            <stop stop-color="#161D29" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#52C41A" offset="0%"></stop>
+            <stop stop-color="#237804" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="AI-Assistant" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="url(#linearGradient-1)" x="0" y="0" width="800" height="600"></rect>
+        <g id="Chat-Window" transform="translate(100.000000, 100.000000)">
+            <rect id="Window" stroke="#237804" stroke-width="2" fill="#2C333F" x="0" y="0" width="600" height="400" rx="8"></rect>
+            <rect id="Header" fill="#161D29" x="0" y="0" width="600" height="40" rx="8"></rect>
+            <text id="AI-Study-Assistant" font-family="Arial-BoldMT, Arial" font-size="16" font-weight="bold" fill="#FFFFFF">
+                <tspan x="240" y="25">AI Study Assistant</tspan>
+            </text>
+            <g id="Chat-Messages" transform="translate(20.000000, 60.000000)">
+                <g id="User-Message-1" transform="translate(180.000000, 0.000000)">
+                    <rect id="Message-Bubble" fill="#161D29" x="0" y="0" width="380" height="60" rx="8"></rect>
+                    <text id="Can-you-explain-how" font-family="Arial, Arial" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="15" y="25">Can you explain how binary search works?</tspan>
+                        <tspan x="15" y="42">I'm having trouble understanding the algorithm.</tspan>
+                    </text>
+                </g>
+                <g id="AI-Message-1" transform="translate(0.000000, 80.000000)">
+                    <rect id="Message-Bubble" fill="#237804" opacity="0.2" x="0" y="0" width="380" height="120" rx="8"></rect>
+                    <text id="Binary-search-is-an-e" font-family="Arial, Arial" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="15" y="25">Binary search is an efficient algorithm for finding an </tspan>
+                        <tspan x="15" y="42">element in a sorted array. It works by repeatedly </tspan>
+                        <tspan x="15" y="59">dividing the search interval in half.</tspan>
+                        <tspan x="15" y="76"></tspan>
+                        <tspan x="15" y="93">Would you like me to show you an example?</tspan>
+                    </text>
+                </g>
+                <g id="User-Message-2" transform="translate(180.000000, 220.000000)">
+                    <rect id="Message-Bubble" fill="#161D29" x="0" y="0" width="380" height="40" rx="8"></rect>
+                    <text id="Yes,-please-show-me-a" font-family="Arial, Arial" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="15" y="25">Yes, please show me an example!</tspan>
+                    </text>
+                </g>
+                <g id="AI-Message-2" transform="translate(0.000000, 280.000000)">
+                    <rect id="Message-Bubble" fill="#237804" opacity="0.2" x="0" y="0" width="380" height="40" rx="8"></rect>
+                    <text id="Here's-a-step-by-step" font-family="Arial, Arial" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="15" y="25">Here's a step-by-step example with an array...</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Input-Area" transform="translate(20.000000, 360.000000)">
+                <rect id="Input-Box" stroke="#237804" stroke-width="1" fill="#161D29" x="0" y="0" width="560" height="40" rx="20"></rect>
+                <text id="Type-your-question…" font-family="Arial, Arial" font-size="14" font-weight="normal" fill="#6C757D">
+                    <tspan x="20" y="25">Type your question…</tspan>
+                </text>
+                <circle id="Send-Button" fill="#52C41A" cx="540" cy="20" r="15"></circle>
+                <path d="M540,15 L545,20 L540,25 L540,22 L535,22 L535,18 L540,18 L540,15 Z" id="Send-Icon" fill="#FFFFFF" transform="translate(540.000000, 20.000000) rotate(90.000000) translate(-540.000000, -20.000000) "></path>
+            </g>
+        </g>
+        <g id="Robot" transform="translate(50.000000, 200.000000)">
+            <circle id="Head" fill="#52C41A" cx="40" cy="40" r="40"></circle>
+            <circle id="Eye-Left" fill="#FFFFFF" cx="25" cy="30" r="8"></circle>
+            <circle id="Eye-Right" fill="#FFFFFF" cx="55" cy="30" r="8"></circle>
+            <circle id="Pupil-Left" fill="#000000" cx="25" cy="30" r="4"></circle>
+            <circle id="Pupil-Right" fill="#000000" cx="55" cy="30" r="4"></circle>
+            <path d="M25,50 C25,55.5228475 31.7157288,60 40,60 C48.2842712,60 55,55.5228475 55,50" id="Mouth" stroke="#FFFFFF" stroke-width="2"></path>
+            <rect id="Antenna" fill="#52C41A" x="35" y="0" width="10" height="10" rx="2"></rect>
+        </g>
+        <g id="Decorations" transform="translate(50.000000, 50.000000)">
+            <circle id="Circle-1" fill="url(#linearGradient-2)" opacity="0.3" cx="100" cy="100" r="50"></circle>
+            <circle id="Circle-2" fill="url(#linearGradient-2)" opacity="0.2" cx="650" cy="450" r="70"></circle>
+            <circle id="Circle-3" fill="url(#linearGradient-2)" opacity="0.1" cx="700" cy="100" r="40"></circle>
+        </g>
+    </g>
+</svg>

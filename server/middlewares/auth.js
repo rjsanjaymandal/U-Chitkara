@@ -42,10 +42,18 @@ exports.auth = async (req, res, next) => {
       console.log("No token found in request");
       console.log("Headers:", req.headers);
       console.log("Body:", req.body);
-      return res.status(401).json({
-        success: false,
-        message: "Token is missing",
-      });
+      // Special handling for code execution endpoint
+      if (req.originalUrl.includes("/code/execute")) {
+        return res.status(401).json({
+          success: false,
+          message: "Authentication required. Please log in to execute code.",
+        });
+      } else {
+        return res.status(401).json({
+          success: false,
+          message: "Token is missing",
+        });
+      }
     }
 
     //verify the token

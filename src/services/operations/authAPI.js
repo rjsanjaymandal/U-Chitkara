@@ -98,7 +98,8 @@ export function login(email, password, navigate) {
         password,
       });
 
-      console.log("LOGIN API RESPONSE............", response);
+      // Don't log sensitive data
+      console.log("LOGIN API RESPONSE STATUS............", response.status);
 
       if (!response.data.success) {
         throw new Error(response.data.message);

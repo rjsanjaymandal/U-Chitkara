@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2C333F" offset="0%"></stop>
+            <stop stop-color="#161D29" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#722ED1" offset="0%"></stop>
+            <stop stop-color="#4B0082" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Code-Playground" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Background" fill="url(#linearGradient-1)" x="0" y="0" width="800" height="600"></rect>
+        <g id="Code-Window" transform="translate(100.000000, 100.000000)">
+            <rect id="Window" stroke="#4B0082" stroke-width="2" fill="#2C333F" x="0" y="0" width="600" height="400" rx="8"></rect>
+            <rect id="Header" fill="#161D29" x="0" y="0" width="600" height="40" rx="8"></rect>
+            <g id="Window-Controls" transform="translate(15.000000, 15.000000)" fill="#FFFFFF">
+                <circle id="Red" fill="#FF5F56" cx="5" cy="5" r="5"></circle>
+                <circle id="Yellow" fill="#FFBD2E" cx="25" cy="5" r="5"></circle>
+                <circle id="Green" fill="#27C93F" cx="45" cy="5" r="5"></circle>
+            </g>
+            <g id="Code" transform="translate(30.000000, 60.000000)">
+                <text id="function-example()--" font-family="Menlo-Regular, Menlo" font-size="16" font-weight="normal" fill="#FFD60A">
+                    <tspan x="0" y="15">function example() {</tspan>
+                    <tspan x="0" y="35">  const greeting = 'Hello, World!';</tspan>
+                    <tspan x="0" y="55">  console.log(greeting);</tspan>
+                    <tspan x="0" y="75">  </tspan>
+                    <tspan x="0" y="95">  // Return a value</tspan>
+                    <tspan x="0" y="115">  return greeting.length;</tspan>
+                    <tspan x="0" y="135">}</tspan>
+                    <tspan x="0" y="155"></tspan>
+                    <tspan x="0" y="175">// Call the function</tspan>
+                    <tspan x="0" y="195">const result = example();</tspan>
+                    <tspan x="0" y="215">console.log(`Result: ${result}`);</tspan>
+                </text>
+            </g>
+            <g id="Cursor" transform="translate(30.000000, 275.000000)">
+                <rect id="Cursor-Line" fill="#FFFFFF" x="0" y="0" width="2" height="16"></rect>
+            </g>
+            <g id="Output" transform="translate(30.000000, 320.000000)">
+                <text id="Output:-Hello,-World" font-family="Menlo-Regular, Menlo" font-size="14" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="0" y="14">Output: Hello, World!</tspan>
+                    <tspan x="0" y="32">Result: 13</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Decorations" transform="translate(50.000000, 50.000000)">
+            <circle id="Circle-1" fill="url(#linearGradient-2)" opacity="0.3" cx="100" cy="100" r="50"></circle>
+            <circle id="Circle-2" fill="url(#linearGradient-2)" opacity="0.2" cx="650" cy="450" r="70"></circle>
+            <circle id="Circle-3" fill="url(#linearGradient-2)" opacity="0.1" cx="700" cy="100" r="40"></circle>
+        </g>
+    </g>
+</svg>

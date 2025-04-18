@@ -35,6 +35,13 @@ export const sidebarLinks = [
     icon: "VscPerson",
   },
   {
+    id: 9,
+    name: "Bulk Course Creator",
+    path: "/dashboard/bulk-course-creator",
+    type: ACCOUNT_TYPE.INSTRUCTOR,
+    icon: "VscExtensions",
+  },
+  {
     id: 6,
     name: "Enrolled Courses",
     path: "/dashboard/enrolled-courses",

@@ -1,0 +1,12 @@
+/* Remove the diamond-shaped pointer from Ant Design dropdowns */
+.ant-dropdown::before,
+.ant-dropdown::after,
+.ant-dropdown-placement-bottomLeft::before,
+.ant-dropdown-placement-bottomLeft::after,
+.ant-dropdown-placement-bottomRight::before,
+.ant-dropdown-placement-bottomRight::after,
+.ant-dropdown-placement-bottom::before,
+.ant-dropdown-placement-bottom::after,
+.ant-dropdown-arrow {
+  display: none !important;
+}

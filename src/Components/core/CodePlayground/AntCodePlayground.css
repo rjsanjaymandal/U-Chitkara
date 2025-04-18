@@ -1,0 +1,202 @@
+/* Code Playground Styles */
+.code-playground-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.code-playground-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+/* Editor Card */
+.editor-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.editor-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom scrollbar for output */
+pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+/* Ant Design Overrides */
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-select-item-option-content {
+  display: flex;
+  align-items: center;
+}
+
+.ant-select-item-option-content i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.ant-collapse-ghost
+  > .ant-collapse-item
+  > .ant-collapse-content
+  > .ant-collapse-content-box {
+  padding: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: absolute !important;
+    z-index: 100;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ant-layout-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* Animation for output */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+pre {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Language Icons */
+.devicon-javascript-plain.colored {
+  color: #f7df1e;
+}
+.devicon-python-plain.colored {
+  color: #3776ab;
+}
+.devicon-cplusplus-plain.colored {
+  color: #00599c;
+}
+.devicon-java-plain.colored {
+  color: #007396;
+}
+.devicon-c-plain.colored {
+  color: #a8b9cc;
+}
+.devicon-ruby-plain.colored {
+  color: #cc342d;
+}
+.devicon-go-plain.colored {
+  color: #00add8;
+}
+.devicon-rust-plain.colored {
+  color: #000000;
+}
+
+/* Dark Mode Adjustments */
+.ant-layout-sider-dark .ant-divider {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ant-layout-sider-dark .ant-collapse-header {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Light Mode Adjustments */
+.ant-layout-sider-light .ant-divider {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Execution Status */
+.execution-status {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.execution-status.success {
+  background-color: rgba(82, 196, 26, 0.1);
+  border: 1px solid rgba(82, 196, 26, 0.2);
+}
+
+.execution-status.error {
+  background-color: rgba(255, 77, 79, 0.1);
+  border: 1px solid rgba(255, 77, 79, 0.2);
+}
+
+.execution-status.running {
+  background-color: rgba(250, 173, 20, 0.1);
+  border: 1px solid rgba(250, 173, 20, 0.2);
+}
+
+/* Monaco Editor Overrides */
+.monaco-editor .margin {
+  background-color: transparent !important;
+}
+
+/* Tooltip Styles */
+.ant-tooltip-inner {
+  min-height: 24px;
+  padding: 4px 8px;
+}
+
+/* Button Styles */
+.ant-btn-primary {
+  background-color: #ffd60a !important;
+  border-color: #ffd60a !important;
+  color: #000814 !important;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #ffe83d !important;
+  border-color: #ffe83d !important;
+  color: #000814 !important;
+}
+
+.ant-btn-primary:active {
+  background-color: #e7c009 !important;
+  border-color: #e7c009 !important;
+  color: #000814 !important;
+}
+
+.ant-btn-primary[disabled],
+.ant-btn-primary[disabled]:hover,
+.ant-btn-primary[disabled]:focus,
+.ant-btn-primary[disabled]:active {
+  background-color: rgba(255, 214, 10, 0.5) !important;
+  border-color: rgba(255, 214, 10, 0.5) !important;
+  color: rgba(0, 8, 20, 0.5) !important;
+}

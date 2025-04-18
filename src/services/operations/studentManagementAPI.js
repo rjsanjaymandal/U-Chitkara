@@ -47,15 +47,13 @@ export const addStudentToCourse = async (courseId, studentEmail, token) => {
     console.log("Student Email:", studentEmail);
     console.log("API URL:", ADD_STUDENT_TO_COURSE_API);
 
-    // Try with test route
-    const directUrl =
-      "http://localhost:4001/api/v1/course/testAddStudentToCourse";
-    console.log("Test URL:", directUrl);
+    // Use the correct API endpoint
+    console.log("Using API endpoint:", ADD_STUDENT_TO_COURSE_API);
 
     // Add token to both headers and body for debugging
     const response = await apiConnector(
       "POST",
-      directUrl, // Use direct URL
+      ADD_STUDENT_TO_COURSE_API, // Use the correct API endpoint
       {
         courseId,
         studentEmail,

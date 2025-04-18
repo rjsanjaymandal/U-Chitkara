@@ -2,8 +2,8 @@ import React from "react";
 import { FooterLink2 } from "../../data/footer-links";
 import { Link } from "react-router-dom";
 
-// Images
-import Logo from "../../assets/Logo/Logo-Full-Light.png";
+// Logo Component
+import { ChitkaraLogoFull } from "../../assets/Logo/ChitkaraLogo";
 
 // Icons
 import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Section 1 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
             <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-              <img src={Logo} alt="" className="object-contain" />
+              <ChitkaraLogoFull className="h-10 w-auto" theme="light" />
               <h1 className="text-richblack-50 font-semibold text-[16px]">
                 Company
               </h1>
@@ -172,7 +172,9 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made by Himanshu Sangwan 🗿 © 2023 Studynotion</div>
+          <div className="text-center">
+            Made by Himanshu Sangwan 🗿 © 2023 Chitkara
+          </div>
         </div>
       </div>
     </div>

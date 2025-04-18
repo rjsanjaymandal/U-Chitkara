@@ -1,0 +1,154 @@
+/* Custom styles for Ant Design components */
+
+/* Navbar */
+.ant-layout-header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0 24px;
+}
+
+/* Dropdown menus */
+.custom-dropdown .ant-dropdown-menu {
+  background-color: #161D29 !important;
+  border: 1px solid #2C333F;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.custom-dropdown .ant-dropdown-menu-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.custom-dropdown .ant-dropdown-menu-item:hover {
+  background-color: #2C333F;
+}
+
+/* Search input */
+.custom-search-input .ant-input {
+  background-color: #2C333F;
+  border: 1px solid #2C333F;
+  color: #F1F2FF;
+  border-radius: 4px;
+}
+
+.custom-search-input .ant-input:focus,
+.custom-search-input .ant-input:hover {
+  border-color: #FFD60A;
+}
+
+.custom-search-input .ant-input-search-button {
+  background-color: #2C333F;
+  border: 1px solid #2C333F;
+  border-left: none;
+}
+
+.custom-search-input .ant-input-search-button:hover {
+  background-color: #4E5566;
+  border-color: #4E5566;
+}
+
+.custom-search-input .ant-input-search-button .anticon {
+  color: #AFB2BF;
+}
+
+/* Drawer */
+.custom-drawer .ant-drawer-content {
+  background-color: #000814;
+}
+
+.custom-drawer .ant-menu {
+  background-color: #000814;
+  color: #F1F2FF;
+  border-right: none;
+}
+
+.custom-drawer .ant-menu-item {
+  color: #F1F2FF;
+}
+
+.custom-drawer .ant-menu-item:hover {
+  color: #FFD60A;
+}
+
+.custom-drawer .ant-menu-item-selected {
+  background-color: #161D29;
+  color: #FFD60A;
+}
+
+.custom-drawer .ant-menu-submenu-title {
+  color: #F1F2FF;
+}
+
+.custom-drawer .ant-menu-submenu-title:hover {
+  color: #FFD60A;
+}
+
+.custom-drawer .ant-menu-submenu-arrow {
+  color: #F1F2FF;
+}
+
+.custom-drawer .ant-menu-submenu-open .ant-menu-submenu-arrow {
+  color: #FFD60A;
+}
+
+.custom-drawer .ant-menu-sub {
+  background-color: #161D29;
+}
+
+/* Buttons */
+.ant-btn-primary {
+  background-color: #FFD60A;
+  border-color: #FFD60A;
+  color: #000814;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #E6C108;
+  border-color: #E6C108;
+  color: #000814;
+}
+
+/* Badge */
+.ant-badge-count {
+  box-shadow: 0 0 0 1px #000814;
+}
+
+/* Divider */
+.ant-divider {
+  border-color: #2C333F;
+}
+
+/* Typography */
+.ant-typography {
+  color: #F1F2FF;
+}
+
+/* Menu */
+.ant-menu-dark {
+  background-color: #000814;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #161D29;
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: #161D29;
+}
+
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background-color: #161D29;
+}
+
+/* Override Ant Design's default focus styles */
+*:focus {
+  outline-color: #FFD60A !important;
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 16px;
+  }
+}

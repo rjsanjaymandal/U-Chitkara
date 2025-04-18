@@ -93,6 +93,9 @@ const ManageStudents = () => {
     console.log("Selected Course:", selectedCourse);
     console.log("Token:", token);
 
+    // Create a new test email for each submission
+    const testEmail = `test${Math.floor(Math.random() * 1000)}@example.com`;
+
     if (!studentEmail.trim()) {
       toast.error("Please enter a valid email");
       return;
@@ -100,9 +103,10 @@ const ManageStudents = () => {
 
     try {
       console.log("Calling addStudentToCourse");
+      // Use the test email instead of the actual email for testing
       const success = await addStudentToCourse(
         selectedCourse,
-        studentEmail,
+        testEmail, // Use test email for testing
         token
       );
       console.log("addStudentToCourse result:", success);

@@ -77,3 +77,24 @@ export const settingsEndpoints = {
   CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
 };
+
+// LEARNING PATH API
+export const learningPathEndpoints = {
+  GET_ALL_LEARNING_PATHS_API: BASE_URL + "/learning-path/getAllLearningPaths",
+  GET_LEARNING_PATH_DETAILS_API:
+    BASE_URL + "/learning-path/getLearningPathDetails",
+  GET_RECOMMENDED_LEARNING_PATHS_API:
+    BASE_URL + "/learning-path/getRecommendedLearningPaths",
+  GET_RECOMMENDED_COURSES_API:
+    BASE_URL + "/learning-path/getRecommendedCourses",
+  ENROLL_IN_LEARNING_PATH_API: BASE_URL + "/learning-path/enrollInLearningPath",
+  UPDATE_LEARNING_PATH_PROGRESS_API:
+    BASE_URL + "/learning-path/updateLearningPathProgress",
+  GET_USER_LEARNING_PATHS_API: BASE_URL + "/learning-path/getUserLearningPaths",
+  CREATE_LEARNING_PATH_API: BASE_URL + "/learning-path/createLearningPath",
+};
+
+// CODE PLAYGROUND API
+export const codePlaygroundEndpoints = {
+  EXECUTE_CODE_API: BASE_URL + "/code/execute",
+};
