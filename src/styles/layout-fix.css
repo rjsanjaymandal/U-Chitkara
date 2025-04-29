@@ -1,0 +1,28 @@
+/* Layout fixes for sticky navbar */
+
+/* Add padding to the top of the main content to prevent navbar overlap */
+.main-content-wrapper {
+  padding-top: 70px; /* Match the height of the navbar */
+}
+
+/* Adjust for mobile screens where navbar might be shorter */
+@media (max-width: 768px) {
+  .main-content-wrapper {
+    padding-top: 60px; /* Match the mobile navbar height */
+  }
+}
+
+/* Specific adjustments for pages with special headers */
+.home-page-wrapper {
+  padding-top: 70px;
+}
+
+/* Dashboard already has its own layout, just add some padding */
+.dashboard-wrapper {
+  padding-top: 70px;
+}
+
+/* For pages with hero sections that should be right below the navbar */
+.hero-section-wrapper {
+  padding-top: 70px;
+}

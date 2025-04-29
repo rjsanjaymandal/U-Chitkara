@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChitkaraLogoFull } from "../../assets/Logo/ChitkaraLogo";
+import logo from "../../assets/Logo/Logo-Full-Light.png";
 import { Link, matchPath } from "react-router-dom";
 import { NavbarLinks } from "../../data/navbar-links";
 import { useLocation } from "react-router-dom";
@@ -12,7 +12,6 @@ import { useDispatch } from "react-redux";
 import { setProgress } from "../../slices/loadingBarSlice";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HiSearch } from "react-icons/hi";
-import { FaCode, FaRobot, FaGamepad, FaRoute } from "react-icons/fa";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -83,22 +82,6 @@ const NavBar = () => {
     }
   };
 
-  // Helper function to get the appropriate icon component
-  const getIconComponent = (iconName) => {
-    switch(iconName) {
-      case 'code':
-        return FaCode;
-      case 'ai':
-        return FaRobot;
-      case 'game':
-        return FaGamepad;
-      case 'path':
-        return FaRoute;
-      default:
-        return FaCode;
-    }
-  };
-
   return (
     <div
       className={`flex sm:relative bg-richblack-900 w-screen relative z-50 h-16 md:h-16 items-center justify-center border-b-[1px] border-b-richblack-700 transition-all duration-500 ${
@@ -112,10 +95,11 @@ const NavBar = () => {
             dispatch(setProgress(100));
           }}
         >
-          <ChitkaraLogoFull
+          <img
+            src={logo}
             className="w-[120px] md:w-[160px] h-auto"
-            theme="light"
-          />
+            alt="Chitkara"
+          ></img>
         </Link>
         {/* mobile Navbar */}
         {user && user?.accountType !== "Instructor" && (
@@ -160,7 +144,7 @@ const NavBar = () => {
           ></div>
           <div ref={show} className="mobNav z-50">
             <nav
-              className="items-center flex flex-col absolute w-[250px] right-0 top-0 glass2 h-screen overflow-y-auto p-4 scrollbar-hide"
+              className="items-center flex flex-col absolute w-[250px] right-0 top-0 glass2 h-screen overflow-y-auto p-4"
               ref={show}
             >
               <button
@@ -223,37 +207,18 @@ const NavBar = () => {
                   <ProfileDropDown />
                   {/* </Link> */}
                   {user?.accountType !== "Instructor" && (
-                    <div className="flex flex-col items-center gap-4 mt-4">
-                      <Link
-                        to="/become-an-instructor"
-                        onClick={() => {
-                          dispatch(setProgress(100));
-                          shownav();
-                        }}
-                        className="block text-center"
-                      >
-                        <button className="text-center text-[15px] px-5 py-2 rounded-md font-semibold bg-yellow-50 text-black hover:scale-95 transition-all duration-200">
-                          Become an Instructor
-                        </button>
-                      </Link>
-                      <Link
-                        to="/dashboard/cart"
-                        onClick={() => {
-                          dispatch(setProgress(100));
-                          shownav();
-                        }}
-                        className="relative"
-                      >
-                        <div className="flex items-center justify-center">
-                          <TiShoppingCart className="fill-richblack-25 w-7 h-7" />
-                          {totalItems > 0 && (
-                            <span className="shadow-sm shadow-black text-[10px] font-bold bg-yellow-100 text-richblack-900 rounded-full px-1 absolute -top-[2px] right-[-8px]">
-                              {totalItems}
-                            </span>
-                          )}
-                        </div>
-                      </Link>
-                    </div>
+                    <Link
+                      to="/become-an-instructor"
+                      onClick={() => {
+                        dispatch(setProgress(100));
+                        shownav();
+                      }}
+                      className="mt-4 block text-center"
+                    >
+                      <button className="text-center text-[15px] px-5 py-2 rounded-md font-semibold bg-yellow-50 text-black hover:scale-95 transition-all duration-200">
+                        Become an Instructor
+                      </button>
+                    </Link>
                   )}
                 </div>
               )}
@@ -285,32 +250,26 @@ const NavBar = () => {
               <div className=" flex flex-col items-end pr-4">
                 {NavbarLinks.find(
                   (item) => item.title === "Explore"
-                )?.links?.map((item, idx) => {
-                  const IconComponent = getIconComponent(item.icon);
-                  return (
-                    <Link
-                      to={item.path}
-                      key={idx}
-                      onClick={() => {
-                        dispatch(setProgress(100));
-                        shownav();
-                      }}
-                      className="p-2 text-sm flex items-start gap-2"
-                    >
-                      <div className="text-yellow-50 mt-1">
-                        <IconComponent className="h-4 w-4" />
-                      </div>
-                      <div className="text-right">
-                        <p className="text-richblack-5 font-medium">
-                          {item.title}
-                        </p>
-                        <p className="text-xs text-richblack-300">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  );
-                })}
+                )?.links?.map((item, idx) => (
+                  <Link
+                    to={item.path}
+                    key={idx}
+                    onClick={() => {
+                      dispatch(setProgress(100));
+                      shownav();
+                    }}
+                    className="p-2 text-sm"
+                  >
+                    <div className="text-right">
+                      <p className="text-richblack-5 font-medium">
+                        {item.title}
+                      </p>
+                      <p className="text-xs text-richblack-300">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
               </div>
               <div className=" mt-4 mb-4 bg-richblack-25 w-[200px] h-[2px]"></div>
               <Link
@@ -374,8 +333,8 @@ const NavBar = () => {
                       </g>
                     </svg>
 
-                    <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[220px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg glass2 p-4 text-richblack-5 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px] shadow-lg shadow-richblack-900/20">
-                      <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded glass2 border-0"></div>
+                    <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[220px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px] shadow-lg shadow-richblack-900/20">
+                      <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
 
                       {/* Catalog dropdown */}
                       {element.title === "Catalog" && (
@@ -387,7 +346,7 @@ const NavBar = () => {
                               <Link
                                 to={`/catalog/${item?.name}`}
                                 key={idx}
-                                className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-700 text-richblack-5 transition-all duration-200"
+                                className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
                                 onClick={() => {
                                   dispatch(setProgress(30));
                                 }}
@@ -402,31 +361,23 @@ const NavBar = () => {
                       {/* Explore dropdown */}
                       {element.dropdown && element.title === "Explore" && (
                         <>
-                          {element.links?.map((item, idx) => {
-                            const IconComponent = getIconComponent(item.icon);
-                            return (
-                              <Link
-                                to={item.path}
-                                key={idx}
-                                className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-700 flex items-start gap-3 transition-all duration-200"
-                                onClick={() => {
-                                  dispatch(setProgress(100));
-                                }}
-                              >
-                                <div className="text-yellow-50 mt-1">
-                                  <IconComponent className="h-5 w-5" />
-                                </div>
-                                <div>
-                                  <p className="font-semibold text-richblack-5">
-                                    {item.title}
-                                  </p>
-                                  <p className="text-xs text-richblack-300">
-                                    {item.description}
-                                  </p>
-                                </div>
-                              </Link>
-                            );
-                          })}
+                          {element.links?.map((item, idx) => (
+                            <Link
+                              to={item.path}
+                              key={idx}
+                              className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
+                              onClick={() => {
+                                dispatch(setProgress(100));
+                              }}
+                            >
+                              <div>
+                                <p className="font-semibold">{item.title}</p>
+                                <p className="text-xs text-richblack-500">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
                         </>
                       )}
                     </div>
@@ -467,6 +418,22 @@ const NavBar = () => {
           {user && user?.accountType !== "Instructor" && (
             <>
               <Link
+                to="/dashboard/cart"
+                className=" relative px-4 "
+                onClick={() => {
+                  dispatch(setProgress(100));
+                }}
+              >
+                <div className=" z-50">
+                  <TiShoppingCart className=" fill-richblack-25 w-7 h-7" />
+                </div>
+                {totalItems > 0 && (
+                  <span className=" shadow-sm shadow-black text-[10px] font-bold bg-yellow-100 text-richblack-900 rounded-full px-1 absolute -top-[2px] right-[8px]">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
+              <Link
                 to="/become-an-instructor"
                 className="text-richblack-25"
                 onClick={() => {
@@ -476,22 +443,6 @@ const NavBar = () => {
                 <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[8px] md:px-[12px] py-[7px] text-richblack-100 hover:bg-yellow-50 hover:text-richblack-900 transition-all duration-200 text-sm md:text-base">
                   Become an Instructor
                 </button>
-              </Link>
-              <Link
-                to="/dashboard/cart"
-                className="relative px-4"
-                onClick={() => {
-                  dispatch(setProgress(100));
-                }}
-              >
-                <div className="z-50">
-                  <TiShoppingCart className="fill-richblack-25 w-7 h-7" />
-                </div>
-                {totalItems > 0 && (
-                  <span className="shadow-sm shadow-black text-[10px] font-bold bg-yellow-100 text-richblack-900 rounded-full px-1 absolute -top-[2px] right-[8px]">
-                    {totalItems}
-                  </span>
-                )}
               </Link>
             </>
           )}

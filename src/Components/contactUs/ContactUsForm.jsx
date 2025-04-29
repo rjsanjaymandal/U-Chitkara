@@ -25,24 +25,26 @@ const ContactUsForm = () => {
     const onSubmit = async (data) => {
         console.log(data);
         try{
-        setloading(true);
-        const phoneNo = data.countryCode+"  "+data.phoneNo;
-        const {firstName,lastName,email,message}=data;
+            setloading(true);
+            const phoneNo = data.countryCode+"  "+data.phoneNo;
+            const {firstName,lastName,email,message}=data;
 
-        const res = await apiConnector("POST",contactusEndpoint.CONTACT_US_API,{firstName,lastName,email,message,phoneNo});
-        if(res.data.success===true){
+            const res = await apiConnector("POST",contactusEndpoint.CONTACT_US_API,{firstName,lastName,email,message,phoneNo});
             
-            toast.success("Message sent successfully");
+            // Check if response and response.data exist before accessing properties
+            if (res && res.data && res.data.success === true) {
+                toast.success("Message sent successfully");
+            } else {
+                toast.error("Something went wrong");
+            }
+            
+            console.log("contact response",res);
+        } catch(error) {
+            console.log("Error in contact form submission:", error);
+            toast.error("Failed to send message. Please try again later.");
+        } finally {
+            setloading(false);
         }
-        else{
-            toast.error("Something went wrong");
-        }
-        console.log("contact response",res);
-        setloading(false);
-        }catch(error){
-            console.log(error);
-        }
-
     }
     
   return (

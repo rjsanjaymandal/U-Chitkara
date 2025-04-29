@@ -155,12 +155,26 @@ const AestheticNavBar = () => {
 
   // Generate catalog dropdown menu
   const getCatalogMenu = () => (
-    <Menu className="aesthetic-dropdown-menu">
+    <Menu
+      className="aesthetic-dropdown-menu"
+      onClick={(e) => e.stopPropagation()}
+    >
       {sublinks.map((item, index) => (
-        <Menu.Item key={`catalog-${index}`} className="dropdown-item">
+        <Menu.Item
+          key={`catalog-${index}`}
+          className="dropdown-item"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Link
             to={`/catalog/${item.name}`}
-            onClick={() => dispatch(setProgress(100))}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(setProgress(100));
+              // Keep the menu open for a moment to ensure the click registers
+              setTimeout(() => {
+                setHoveredMenu(null);
+              }, 300);
+            }}
             className="dropdown-link"
           >
             <div className="dropdown-icon-container">
@@ -175,17 +189,28 @@ const AestheticNavBar = () => {
 
   // Generate explore dropdown menu
   const getExploreMenu = (links) => (
-    <Menu className="aesthetic-dropdown-menu explore-dropdown">
+    <Menu
+      className="aesthetic-dropdown-menu explore-dropdown"
+      onClick={(e) => e.stopPropagation()}
+    >
       {links.map((item, index) => {
         const IconComponent = getIconComponent(item.icon);
         return (
           <Menu.Item
             key={`explore-${index}`}
             className="dropdown-item explore-item"
+            onClick={(e) => e.stopPropagation()}
           >
             <Link
               to={item.path}
-              onClick={() => dispatch(setProgress(100))}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(setProgress(100));
+                // Keep the menu open for a moment to ensure the click registers
+                setTimeout(() => {
+                  setHoveredMenu(null);
+                }, 300);
+              }}
               className="dropdown-link"
             >
               <div className="explore-content">
@@ -365,9 +390,21 @@ const AestheticNavBar = () => {
                       <Dropdown
                         overlay={getCatalogMenu()}
                         placement="bottomCenter"
-                        trigger={["hover"]}
+                        trigger={["click"]}
                         overlayClassName="aesthetic-dropdown"
                         open={hoveredMenu === link.title}
+                        onVisibleChange={(visible) => {
+                          if (visible) {
+                            setHoveredMenu(link.title);
+                          } else {
+                            // Add a small delay before closing the dropdown
+                            setTimeout(() => {
+                              if (hoveredMenu === link.title) {
+                                setHoveredMenu(null);
+                              }
+                            }, 200);
+                          }
+                        }}
                         arrow={{ pointAtCenter: true }}
                       >
                         <span className="nav-link dropdown-trigger">
@@ -390,9 +427,21 @@ const AestheticNavBar = () => {
                       <Dropdown
                         overlay={getExploreMenu(link.links)}
                         placement="bottomCenter"
-                        trigger={["hover"]}
+                        trigger={["click"]}
                         overlayClassName="aesthetic-dropdown"
                         open={hoveredMenu === link.title}
+                        onVisibleChange={(visible) => {
+                          if (visible) {
+                            setHoveredMenu(link.title);
+                          } else {
+                            // Add a small delay before closing the dropdown
+                            setTimeout(() => {
+                              if (hoveredMenu === link.title) {
+                                setHoveredMenu(null);
+                              }
+                            }, 200);
+                          }
+                        }}
                         arrow={{ pointAtCenter: true }}
                       >
                         <span className="nav-link dropdown-trigger">

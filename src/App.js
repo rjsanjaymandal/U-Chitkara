@@ -1,6 +1,7 @@
 import "./App.css";
 import "./styles/dropdown-fix.css";
 import "./styles/modern-navbar.css";
+import "./styles/layout-fix.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./Components/common/NavBar";
@@ -66,7 +67,7 @@ function App() {
   const dispatch = useDispatch();
   const isOnline = useOnlineStatus(); // Use our custom hook for better offline detection
   return (
-    <div className=" w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <LoadingBar
         color="#FFD60A"
         height={1.4}
@@ -74,142 +75,147 @@ function App() {
         onLoaderFinished={() => dispatch(setProgress(0))}
       />
       <AestheticNavBar />
-      {!isOnline && (
-        <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center shadow-md fixed bottom-0 left-0 right-0 z-50 animate-pulse">
-          <RiWifiOffLine size={22} aria-hidden="true" />
-          <span>Please check your internet connection.</span>
-          <button
-            className="ml-2 bg-richblack-500 rounded-md p-1 px-2 text-white hover:bg-richblack-600 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-50"
-            onClick={() => window.location.reload()}
-            aria-label="Retry connection"
+      <div className="main-content-wrapper">
+        {!isOnline && (
+          <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center shadow-md fixed bottom-0 left-0 right-0 z-50 animate-pulse">
+            <RiWifiOffLine size={22} aria-hidden="true" />
+            <span>Please check your internet connection.</span>
+            <button
+              className="ml-2 bg-richblack-500 rounded-md p-1 px-2 text-white hover:bg-richblack-600 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-50"
+              onClick={() => window.location.reload()}
+              aria-label="Retry connection"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/catalog/:catalog" element={<Catalog />} />
+
+          <Route
+            path="/login"
+            element={
+              <OpenRoute>
+                <Login />
+              </OpenRoute>
+            }
+          />
+
+          <Route
+            path="/signup"
+            element={
+              <OpenRoute>
+                <Signup />
+              </OpenRoute>
+            }
+          />
+
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          <Route path="/update-password/:id" element={<ResetPassword />} />
+
+          <Route path="/verify-email" element={<VerifyOtp />} />
+
+          <Route path="/about" element={<About />} />
+
+          <Route path="/contact" element={<ContactUs />} />
+
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
+
+          <Route path="/search/:searchQuery" element={<SearchCourse />} />
+
+          <Route path="/learning-paths" element={<LearningPaths />} />
+
+          <Route
+            path="/learning-path/:pathId"
+            element={<LearningPathDetails />}
+          />
+
+          <Route path="/code-playground" element={<CodePlayground />} />
+
+          <Route path="/ai-chat" element={<AIChat />} />
+
+          <Route path="/fruitbox-flex" element={<FruitBoxFlex />} />
+
+          <Route
+            path="/become-an-instructor"
+            element={<BecomeAnInstructor />}
+          />
+
+          <Route
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
           >
-            Retry
-          </button>
-        </div>
-      )}
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
+            <Route path="dashboard/my-profile" element={<MyProfile />} />
+            <Route path="dashboard/settings" element={<Setting />} />
+            {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+              <>
+                <Route path="dashboard/cart" element={<Cart />} />
+                <Route
+                  path="dashboard/enrolled-courses"
+                  element={<EnrollledCourses />}
+                />
+                <Route
+                  path="dashboard/purchase-history"
+                  element={<PurchaseHistory />}
+                />
+              </>
+            )}
+            {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+              <>
+                <Route path="dashboard/add-course" element={<AddCourse />} />
+                <Route path="dashboard/my-courses" element={<MyCourses />} />
+                <Route
+                  path="dashboard/edit-course/:courseId"
+                  element={<EditCourse />}
+                />
+                <Route
+                  path="dashboard/instructor"
+                  element={<InstructorDashboard />}
+                />
+                <Route
+                  path="dashboard/manage-students"
+                  element={<ManageStudents />}
+                />
+                <Route
+                  path="dashboard/bulk-course-creator"
+                  element={<BulkCourseCreator />}
+                />
+              </>
+            )}
+            {user?.accountType === ACCOUNT_TYPE.ADMIN && (
+              <>
+                <Route path="dashboard/admin-panel" element={<AdminPannel />} />
+              </>
+            )}
+          </Route>
 
-        <Route path="/catalog/:catalog" element={<Catalog />} />
+          <Route
+            element={
+              <PrivateRoute>
+                <ViewCourse />
+              </PrivateRoute>
+            }
+          >
+            {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+              <>
+                <Route
+                  path="/dashboard/enrolled-courses/view-course/:courseId/section/:sectionId/sub-section/:subsectionId"
+                  element={<VideoDetails />}
+                />
+              </>
+            )}
+          </Route>
 
-        <Route
-          path="/login"
-          element={
-            <OpenRoute>
-              <Login />
-            </OpenRoute>
-          }
-        />
-
-        <Route
-          path="/signup"
-          element={
-            <OpenRoute>
-              <Signup />
-            </OpenRoute>
-          }
-        />
-
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-
-        <Route path="/update-password/:id" element={<ResetPassword />} />
-
-        <Route path="/verify-email" element={<VerifyOtp />} />
-
-        <Route path="/about" element={<About />} />
-
-        <Route path="/contact" element={<ContactUs />} />
-
-        <Route path="/courses/:courseId" element={<CourseDetails />} />
-
-        <Route path="/search/:searchQuery" element={<SearchCourse />} />
-
-        <Route path="/learning-paths" element={<LearningPaths />} />
-
-        <Route
-          path="/learning-path/:pathId"
-          element={<LearningPathDetails />}
-        />
-
-        <Route path="/code-playground" element={<CodePlayground />} />
-
-        <Route path="/ai-chat" element={<AIChat />} />
-
-        <Route path="/fruitbox-flex" element={<FruitBoxFlex />} />
-
-        <Route path="/become-an-instructor" element={<BecomeAnInstructor />} />
-
-        <Route
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        >
-          <Route path="dashboard/my-profile" element={<MyProfile />} />
-          <Route path="dashboard/settings" element={<Setting />} />
-          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
-            <>
-              <Route path="dashboard/cart" element={<Cart />} />
-              <Route
-                path="dashboard/enrolled-courses"
-                element={<EnrollledCourses />}
-              />
-              <Route
-                path="dashboard/purchase-history"
-                element={<PurchaseHistory />}
-              />
-            </>
-          )}
-          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
-            <>
-              <Route path="dashboard/add-course" element={<AddCourse />} />
-              <Route path="dashboard/my-courses" element={<MyCourses />} />
-              <Route
-                path="dashboard/edit-course/:courseId"
-                element={<EditCourse />}
-              />
-              <Route
-                path="dashboard/instructor"
-                element={<InstructorDashboard />}
-              />
-              <Route
-                path="dashboard/manage-students"
-                element={<ManageStudents />}
-              />
-              <Route
-                path="dashboard/bulk-course-creator"
-                element={<BulkCourseCreator />}
-              />
-            </>
-          )}
-          {user?.accountType === ACCOUNT_TYPE.ADMIN && (
-            <>
-              <Route path="dashboard/admin-panel" element={<AdminPannel />} />
-            </>
-          )}
-        </Route>
-
-        <Route
-          element={
-            <PrivateRoute>
-              <ViewCourse />
-            </PrivateRoute>
-          }
-        >
-          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
-            <>
-              <Route
-                path="/dashboard/enrolled-courses/view-course/:courseId/section/:sectionId/sub-section/:subsectionId"
-                element={<VideoDetails />}
-              />
-            </>
-          )}
-        </Route>
-
-        <Route path="*" element={<Home />} />
-      </Routes>
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

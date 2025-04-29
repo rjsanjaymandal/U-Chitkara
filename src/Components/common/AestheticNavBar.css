@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  height: 70px;
+  height: 70px; /* This height should match the padding-top in layout-fix.css */
   position: relative;
   animation: fadeInDown 0.6s ease-out forwards;
 }
@@ -162,6 +162,11 @@
   overflow: hidden;
 }
 
+/* Prevent dropdown from closing too quickly */
+.ant-dropdown-open {
+  pointer-events: auto !important;
+}
+
 .dropdown-trigger::before {
   content: "";
   position: absolute;
@@ -200,6 +205,8 @@
   -webkit-backdrop-filter: blur(12px);
   animation: dropdownFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: top center;
+  /* Prevent dropdown from closing too quickly */
+  transition-delay: 0.2s !important;
 }
 
 .aesthetic-dropdown-menu {
@@ -818,7 +825,7 @@
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 16px;
-    height: 60px;
+    height: 60px; /* This height should match the mobile padding-top in layout-fix.css */
   }
 
   .logo-image {
