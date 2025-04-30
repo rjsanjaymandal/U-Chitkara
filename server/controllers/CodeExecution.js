@@ -1,4 +1,14 @@
-const axios = require("axios");
+// Try to require axios, but provide a fallback if it's not available
+let axios;
+try {
+  axios = require("axios");
+} catch (error) {
+  console.error(
+    "Axios module not found. Code execution feature will be disabled."
+  );
+  axios = null;
+}
+
 const rateLimit = require("express-rate-limit");
 
 // Language IDs for Judge0 API
@@ -27,6 +37,16 @@ exports.codeLimiter = rateLimit({
 
 // Execute code using Judge0 API
 exports.executeCode = async (req, res) => {
+  // Check if axios is available
+  if (!axios) {
+    return res.status(503).json({
+      success: false,
+      message:
+        "Code execution service is temporarily unavailable. The required dependencies are not installed.",
+      error: "missing_dependency",
+    });
+  }
+
   try {
     // Log environment variables for debugging (don't log the full API key in production)
     console.log(

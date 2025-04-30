@@ -4,8 +4,9 @@ services:
     name: u-chitkara-api
     env: node
     region: singapore # Choose a region close to your users
-    buildCommand: cd server && npm install
+    buildCommand: cd server && bash render-build.sh
     startCommand: cd server && node index.js
+    nodeVersion: 18.17.1 # Specify a stable LTS version
     envVars:
       - key: NODE_ENV
         value: production
@@ -42,7 +43,7 @@ services:
   - type: web
     name: u-chitkara
     env: static
-    buildCommand: npm install && npm run build
+    buildCommand: bash render-build.sh
     staticPublishPath: ./build
     envVars:
       - key: REACT_APP_BASE_URL
