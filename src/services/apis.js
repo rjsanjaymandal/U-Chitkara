@@ -1,4 +1,11 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// Set the base URL based on environment
+const BASE_URL =
+  process.env.REACT_APP_BASE_URL || "http://localhost:4000/api/v1";
+
+// Log the API base URL (only in development)
+if (process.env.NODE_ENV === "development") {
+  console.log("API Base URL:", BASE_URL);
+}
 
 // AUTH ENDPOINTS
 export const endpoints = {
