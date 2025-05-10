@@ -35,6 +35,7 @@ import {
   PhoneOutlined,
   BookOutlined,
   AppstoreOutlined,
+  CodeSandboxOutlined,
 } from "@ant-design/icons";
 
 // Components
@@ -137,6 +138,8 @@ const ModernNavBar = () => {
         return ReadOutlined;
       case "ai":
         return RobotOutlined;
+      case "leetcode":
+        return CodeSandboxOutlined;
       case "game":
         return LayoutOutlined;
       default:
@@ -156,31 +159,29 @@ const ModernNavBar = () => {
       >
         {NavbarLinks.map((link) => {
           if (link.title === "Catalog") {
-            // Catalog dropdown
-            const catalogMenu = (
-              <Menu
-                className="bg-richblack-800 border border-richblack-700"
-                style={{ minWidth: "200px" }}
-              >
-                {sublinks.map((item, index) => (
-                  <Menu.Item key={`catalog-${index}`}>
-                    <Link
-                      to={`/catalog/${item.name}`}
-                      onClick={() => dispatch(setProgress(30))}
-                      className="text-richblack-25 hover:text-yellow-50"
-                    >
-                      {item.name}
-                    </Link>
-                  </Menu.Item>
-                ))}
-              </Menu>
-            );
+            // Catalog dropdown items
+            const catalogMenuItems = sublinks.map((item, index) => ({
+              key: `catalog-${index}`,
+              label: (
+                <Link
+                  to={`/catalog/${item.name}`}
+                  onClick={() => dispatch(setProgress(30))}
+                  className="text-richblack-25 hover:text-yellow-50"
+                >
+                  {item.name}
+                </Link>
+              ),
+            }));
 
             return (
               <Menu.Item key={link.title}>
                 <Dropdown
-                  overlay={catalogMenu}
-                  placement="bottomCenter"
+                  menu={{
+                    items: catalogMenuItems,
+                    className: "bg-richblack-800 border border-richblack-700",
+                    style: { minWidth: "200px" },
+                  }}
+                  placement="bottom"
                   overlayClassName="custom-dropdown"
                 >
                   <span className="flex items-center cursor-pointer text-richblack-25">
@@ -193,44 +194,43 @@ const ModernNavBar = () => {
               </Menu.Item>
             );
           } else if (link.dropdown && link.title === "Explore") {
-            // Explore dropdown
-            const exploreMenu = (
-              <Menu
-                className="bg-richblack-800 border border-richblack-700"
-                style={{ minWidth: "250px" }}
-              >
-                {link.links.map((item, index) => {
-                  const IconComponent = getIconComponent(item.icon);
-                  return (
-                    <Menu.Item key={`explore-${index}`} className="py-2">
-                      <Link
-                        to={item.path}
-                        onClick={() => dispatch(setProgress(100))}
-                        className="flex items-start gap-3"
-                      >
-                        <div className="text-yellow-50 mt-1">
-                          <IconComponent style={{ fontSize: "16px" }} />
-                        </div>
-                        <div>
-                          <div className="font-medium text-richblack-5">
-                            {item.title}
-                          </div>
-                          <div className="text-xs text-richblack-300">
-                            {item.description}
-                          </div>
-                        </div>
-                      </Link>
-                    </Menu.Item>
-                  );
-                })}
-              </Menu>
-            );
+            // Explore dropdown items
+            const exploreMenuItems = link.links.map((item, index) => {
+              const IconComponent = getIconComponent(item.icon);
+              return {
+                key: `explore-${index}`,
+                className: "py-2",
+                label: (
+                  <Link
+                    to={item.path}
+                    onClick={() => dispatch(setProgress(100))}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="text-yellow-50 mt-1">
+                      <IconComponent style={{ fontSize: "16px" }} />
+                    </div>
+                    <div>
+                      <div className="font-medium text-richblack-5">
+                        {item.title}
+                      </div>
+                      <div className="text-xs text-richblack-300">
+                        {item.description}
+                      </div>
+                    </div>
+                  </Link>
+                ),
+              };
+            });
 
             return (
               <Menu.Item key={link.title}>
                 <Dropdown
-                  overlay={exploreMenu}
-                  placement="bottomCenter"
+                  menu={{
+                    items: exploreMenuItems,
+                    className: "bg-richblack-800 border border-richblack-700",
+                    style: { minWidth: "250px" },
+                  }}
+                  placement="bottom"
                   overlayClassName="custom-dropdown"
                 >
                   <span className="flex items-center cursor-pointer text-richblack-25">
@@ -544,10 +544,12 @@ const ModernNavBar = () => {
         open={mobileMenuOpen}
         width={280}
         className="custom-drawer"
-        bodyStyle={{ padding: 0, backgroundColor: "#000814" }}
-        headerStyle={{
-          backgroundColor: "#000814",
-          borderBottom: "1px solid #2C333F",
+        styles={{
+          body: { padding: 0, backgroundColor: "#000814" },
+          header: {
+            backgroundColor: "#000814",
+            borderBottom: "1px solid #2C333F",
+          },
         }}
       >
         {/* User Profile Section - Mobile */}

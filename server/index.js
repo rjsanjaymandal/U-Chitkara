@@ -10,6 +10,7 @@ const CourseRoutes = require("./routes/Course");
 const LearningPathRoutes = require("./routes/LearningPath");
 const CodeExecutionRoutes = require("./routes/CodeExecution");
 const ChatRoutes = require("./routes/Chat");
+const LeetCodeRoutes = require("./routes/LeetCode");
 
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
@@ -66,6 +67,8 @@ app.use("/api/v1/learning-path", LearningPathRoutes);
 app.use("/api/v1/code", CodeExecutionRoutes);
 
 app.use("/api/v1/chat", ChatRoutes);
+
+app.use("/api/v1/leetcode", LeetCodeRoutes);
 
 app.use("/api/v1/contact", require("./routes/ContactUs"));
 

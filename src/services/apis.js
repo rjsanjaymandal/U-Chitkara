@@ -14,6 +14,7 @@ export const endpoints = {
   LOGIN_API: BASE_URL + "/auth/login",
   RESETPASSTOKEN_API: BASE_URL + "/auth/reset-password-token",
   RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
+  REFRESH_TOKEN_API: BASE_URL + "/auth/refresh-token",
 };
 
 // PROFILE ENDPOINTS
@@ -72,6 +73,16 @@ export const categories = {
 export const catalogData = {
   CATALOGPAGEDATA_API: BASE_URL + "/course/getCategoryPageDetails",
 };
+// LEETCODE API
+export const leetCodeEndpoints = {
+  UPDATE_LEETCODE_USERNAME_API: BASE_URL + "/leetcode/username",
+  GET_LEETCODE_STATS_API: BASE_URL + "/leetcode/stats",
+  GET_ALL_PROBLEMS_API: BASE_URL + "/leetcode/problems",
+  GET_PROBLEM_BY_ID_API: BASE_URL + "/leetcode/problems",
+  UPDATE_PROBLEM_PROGRESS_API: BASE_URL + "/leetcode/progress",
+  GET_USER_PROGRESS_API: BASE_URL + "/leetcode/progress",
+};
+
 // CONTACT-US API
 export const contactusEndpoint = {
   CONTACT_US_API: BASE_URL + "/contact/contactUs",

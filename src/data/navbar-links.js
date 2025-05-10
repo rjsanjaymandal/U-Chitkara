@@ -33,6 +33,13 @@ export const NavbarLinks = [
         icon: "ai",
       },
       {
+        title: "LeetCode Practice",
+        path: "/leetcode",
+        description:
+          "Practice coding problems and track your progress with LeetCode integration",
+        icon: "leetcode",
+      },
+      {
         title: "CSS Flexbox Game",
         path: "/fruitbox-flex",
         description:

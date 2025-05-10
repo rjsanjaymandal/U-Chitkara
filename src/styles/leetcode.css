@@ -1,0 +1,266 @@
+/* LeetCode Components Styles */
+
+/* Custom tabs */
+.custom-tabs .ant-tabs-tab {
+  color: #AFAFAF;
+  transition: all 0.3s ease;
+}
+
+.custom-tabs .ant-tabs-tab:hover {
+  color: #FFD60A;
+}
+
+.custom-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #FFD60A;
+}
+
+.custom-tabs .ant-tabs-ink-bar {
+  background-color: #FFD60A;
+}
+
+/* Custom table */
+.custom-table .ant-table {
+  background-color: transparent;
+  color: #F5F5F5;
+}
+
+.custom-table .ant-table-thead > tr > th {
+  background-color: #2C333F;
+  color: #F5F5F5;
+  border-bottom: 1px solid #424854;
+}
+
+.custom-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #424854;
+  color: #F5F5F5;
+}
+
+.custom-table .ant-table-tbody > tr:hover > td {
+  background-color: #2C333F;
+}
+
+.custom-table .ant-table-pagination .ant-pagination-item-active {
+  border-color: #FFD60A;
+}
+
+.custom-table .ant-table-pagination .ant-pagination-item-active a {
+  color: #FFD60A;
+}
+
+/* Custom dropdown */
+.custom-dropdown .ant-dropdown-menu {
+  background-color: #2C333F;
+  border: 1px solid #424854;
+}
+
+.custom-dropdown .ant-dropdown-menu-item {
+  color: #F5F5F5;
+}
+
+.custom-dropdown .ant-dropdown-menu-item:hover {
+  background-color: #424854;
+}
+
+/* Custom search input */
+.custom-search-input .ant-input {
+  background-color: #2C333F;
+  border-color: #424854;
+  color: #F5F5F5;
+}
+
+.custom-search-input .ant-input-search-button {
+  background-color: #FFD60A;
+  border-color: #FFD60A;
+  color: #000000;
+}
+
+/* Problem detail styles */
+.problem-description {
+  color: #F5F5F5;
+  line-height: 1.6;
+}
+
+.problem-description pre {
+  background-color: #2C333F;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.problem-description code {
+  background-color: #2C333F;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Editor styles */
+.monaco-editor .margin {
+  background-color: #1E1E1E;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Status tags */
+.status-solved {
+  background-color: #52C41A;
+  color: #FFFFFF;
+}
+
+.status-attempted {
+  background-color: #1890FF;
+  color: #FFFFFF;
+}
+
+.status-bookmarked {
+  background-color: #FAAD14;
+  color: #FFFFFF;
+}
+
+/* Difficulty tags */
+.difficulty-easy {
+  color: #52C41A;
+}
+
+.difficulty-medium {
+  color: #FAAD14;
+}
+
+.difficulty-hard {
+  color: #FF4D4F;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .problem-list-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .problem-list-filters > * {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
+/* Markdown content */
+.prose {
+  color: #F5F5F5;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: #F5F5F5;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose p {
+  margin-bottom: 1em;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose code {
+  background-color: #2C333F;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.prose pre {
+  background-color: #2C333F;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.prose a {
+  color: #FFD60A;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose blockquote {
+  border-left: 4px solid #424854;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #AFAFAF;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Chart styles */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: #2C333F !important;
+  border-color: #424854 !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-label,
+.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item {
+  color: #F5F5F5 !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #AFAFAF;
+}
+
+/* Ant Design overrides */
+.ant-modal-content {
+  background-color: #2C333F;
+}
+
+.ant-modal-header {
+  background-color: #2C333F;
+  border-bottom: 1px solid #424854;
+}
+
+.ant-modal-title {
+  color: #F5F5F5;
+}
+
+.ant-modal-close-x {
+  color: #F5F5F5;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid #424854;
+}
+
+.ant-rate-star:not(.ant-rate-star-full) .ant-rate-star-first,
+.ant-rate-star:not(.ant-rate-star-full) .ant-rate-star-second {
+  color: #424854;
+}
+
+.ant-rate-star-full .ant-rate-star-first,
+.ant-rate-star-full .ant-rate-star-second {
+  color: #FFD60A;
+}

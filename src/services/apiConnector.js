@@ -20,15 +20,30 @@ export const apiConnector = (method, url, bodyData, headers, params) => {
     }
   }
 
+  // Process authentication headers
+  let authHeaders = { ...headers };
+
+  // If we have an Authorization header with a token, ensure it's properly formatted
+  if (authHeaders && authHeaders.Authorization) {
+    // Check if the token already has the Bearer prefix
+    if (!authHeaders.Authorization.startsWith("Bearer ")) {
+      authHeaders.Authorization = `Bearer ${authHeaders.Authorization}`;
+    }
+    console.log(
+      "Using Authorization header:",
+      authHeaders.Authorization.substring(0, 20) + "..."
+    );
+  }
+
   // Make the actual API call
   // Add security headers for non-GET requests
   const secureHeaders =
     method !== "GET"
       ? {
           "X-Requested-With": "XMLHttpRequest", // Helps prevent CSRF attacks
-          ...headers,
+          ...authHeaders,
         }
-      : headers;
+      : authHeaders;
 
   return axiosInstance({
     method: method,

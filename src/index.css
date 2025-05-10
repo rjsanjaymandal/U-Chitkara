@@ -3,3 +3,36 @@
 @tailwind utilities;
 
 @import "./styles/animations.css";
+@import "./styles/catalog.css";
+@import "./styles/leetcode.css";
+
+/* Global styles for improved UI */
+html {
+  scroll-behavior: smooth;
+}
+
+@supports not (scroll-behavior: smooth) {
+  /* Fallback for browsers that don't support scroll-behavior */
+  html {
+    overflow: auto;
+  }
+}
+
+/* Improved scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161d29;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c333f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd60a;
+}

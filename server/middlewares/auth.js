@@ -40,13 +40,21 @@ exports.auth = async (req, res, next) => {
     //if token missing, then return response
     if (!token) {
       console.log("No token found in request");
-      console.log("Headers:", req.headers);
+      console.log("Headers:", JSON.stringify(req.headers));
       console.log("Body:", req.body);
-      // Special handling for code execution endpoint
+      console.log("URL:", req.originalUrl);
+
+      // Special handling for different endpoints
       if (req.originalUrl.includes("/code/execute")) {
         return res.status(401).json({
           success: false,
           message: "Authentication required. Please log in to execute code.",
+        });
+      } else if (req.originalUrl.includes("/leetcode")) {
+        return res.status(401).json({
+          success: false,
+          message:
+            "Authentication required. Please log in to access LeetCode features.",
         });
       } else {
         return res.status(401).json({
@@ -58,14 +66,36 @@ exports.auth = async (req, res, next) => {
 
     //verify the token
     try {
-      const decode = jwt.verify(token, process.env.JWT_SECRET);
-      console.log("decode= ", decode);
+      console.log(
+        "Attempting to verify token:",
+        token.substring(0, 15) + "..."
+      );
+      console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
+
+      // Check if token is in the correct format
+      if (token.split(".").length !== 3) {
+        console.error(
+          "Token is not in valid JWT format (should have 3 parts separated by dots)"
+        );
+        return res.status(401).json({
+          success: false,
+          message: "Token format is invalid",
+        });
+      }
+
+      // Clean the JWT_SECRET (remove any whitespace)
+      const cleanJwtSecret = process.env.JWT_SECRET.trim();
+      console.log("JWT_SECRET length:", cleanJwtSecret.length);
+
+      const decode = jwt.verify(token, cleanJwtSecret);
+      console.log("Token verified successfully. User ID:", decode.id);
       req.user = decode;
     } catch (err) {
       //verification - issue
+      console.error("Token verification failed:", err.message);
       return res.status(401).json({
         success: false,
-        message: "token is invalid",
+        message: "Token is invalid: " + err.message,
       });
     }
     next();

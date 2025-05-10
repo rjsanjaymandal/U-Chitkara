@@ -47,6 +47,10 @@ import LearningPathDetails from "./pages/LearningPathDetails";
 import CodePlayground from "./pages/CodePlayground";
 import BecomeAnInstructor from "./pages/BecomeAnInstructor";
 import AIChat from "./pages/AIChat";
+import LeetCodeRedesigned from "./pages/LeetCodeRedesigned";
+import LeetCodeProblems from "./pages/LeetCodeProblems";
+import LeetCodeProblem from "./pages/LeetCodeProblem";
+import LeetCodeConnect from "./pages/LeetCodeConnect";
 
 import FruitBoxFlex from "./pages/FruitBoxFlex";
 import useOnlineStatus from "./hooks/useOnlineStatus";
@@ -137,6 +141,11 @@ function App() {
           <Route path="/code-playground" element={<CodePlayground />} />
 
           <Route path="/ai-chat" element={<AIChat />} />
+
+          <Route path="/leetcode" element={<LeetCodeRedesigned />} />
+          <Route path="/leetcode/problems" element={<LeetCodeProblems />} />
+          <Route path="/leetcode/problem/:id" element={<LeetCodeProblem />} />
+          <Route path="/leetcode/connect" element={<LeetCodeConnect />} />
 
           <Route path="/fruitbox-flex" element={<FruitBoxFlex />} />
 
