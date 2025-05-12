@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 const { Text } = Typography;
 
 const LeetCodeProblemTable = ({ problems, type }) => {
-  console.log(`LeetCodeProblemTable for ${type}:`, problems);
-
   // Check if problems is undefined or not an array
   if (!problems || !Array.isArray(problems)) {
-    console.error(`Problems for ${type} is not an array:`, problems);
     return (
       <Empty
         description={
