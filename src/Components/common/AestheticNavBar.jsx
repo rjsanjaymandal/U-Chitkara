@@ -173,7 +173,7 @@ const AestheticNavBar = () => {
               // Keep the menu open for a moment to ensure the click registers
               setTimeout(() => {
                 setHoveredMenu(null);
-              }, 300);
+              }, 500); // Increased from 300ms to 500ms
             }}
             className="dropdown-link"
           >
@@ -209,7 +209,7 @@ const AestheticNavBar = () => {
                 // Keep the menu open for a moment to ensure the click registers
                 setTimeout(() => {
                   setHoveredMenu(null);
-                }, 300);
+                }, 500); // Increased from 300ms to 500ms
               }}
               className="dropdown-link"
             >
@@ -397,12 +397,12 @@ const AestheticNavBar = () => {
                           if (visible) {
                             setHoveredMenu(link.title);
                           } else {
-                            // Add a small delay before closing the dropdown
+                            // Increased delay to give users more time to click dropdown items
                             setTimeout(() => {
                               if (hoveredMenu === link.title) {
                                 setHoveredMenu(null);
                               }
-                            }, 200);
+                            }, 800); // Increased from 200ms to 800ms
                           }
                         }}
                         arrow={{ pointAtCenter: true }}
@@ -434,12 +434,12 @@ const AestheticNavBar = () => {
                           if (visible) {
                             setHoveredMenu(link.title);
                           } else {
-                            // Add a small delay before closing the dropdown
+                            // Increased delay to give users more time to click dropdown items
                             setTimeout(() => {
                               if (hoveredMenu === link.title) {
                                 setHoveredMenu(null);
                               }
-                            }, 200);
+                            }, 800); // Increased from 200ms to 800ms
                           }
                         }}
                         arrow={{ pointAtCenter: true }}
