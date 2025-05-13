@@ -23,6 +23,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
+console.log("Server configured to use port:", PORT);
 database.connect();
 
 // Increase payload size limit for file uploads
